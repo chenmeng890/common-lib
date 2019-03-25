@@ -1,0 +1,10 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+    <package name="demo" extends="struts-default">
+		<action name="demo" class="com.yihaodian.search.DemoAction">
+			<result name="success" type="freemarker">
+				/demo/ftl/demo.ftl
+			</result>
+		</action>
+    </package>
+</xwork>

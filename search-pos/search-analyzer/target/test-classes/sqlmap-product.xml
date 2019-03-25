@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<select id="listProducts" resultClass="java.util.HashMap">
+		select P.PRODUCT_CNAME as CN_NAME, max(B.brand_name) as BRAND_NAME, max(MSC.CATEGORY_SEARCH_NAME) as CAT_NAME, max(P.product_code) as CODE
+		 from purchase.product P
+		   inner join purchase.mc_site_CATEGORY MSC on MSC.category_id = p.category_id
+		   inner join purchase.category C on C.id = p.category_id
+		   left join purchase.Brand B on b.id = p.product_brand_id
+		 where MSC.mc_site_id=1
+		   AND MSC.is_delete=0 and MSC.is_visible=1
+		   AND P.is_deleted=0 and P.product_type!=2
+		   AND C.search_visible=1 and C.is_visible=1 and C.is_delete=0
+       AND (P.product_type=1 or exists(select * from product_merchant PM where PM.product_id = P.id and PM.can_sale=1 and PM.can_show=1))
+		group by P.PRODUCT_CNAME
+		order by cat_name,brand_name,cn_name
+	</select>
+
+</sqlMap>

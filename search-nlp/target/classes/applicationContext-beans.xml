@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc_dict.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource_mysql_dict"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>${jdbc_dict.driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${jdbc_dict.url}</value>
+		</property>
+		<property name="username">
+			<value>${jdbc_dict.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc_dict.password}</value>
+		</property>
+	</bean>
+	
+	<bean id="sqlMapClient"
+		class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation">
+			<value>classpath:/sql-map-config.xml</value>
+		</property>
+	</bean>
+	
+	<bean id="dictWordDao"
+		class="com.yihaodian.search.nlp.dao.impl.DictWordDaoImpl">
+        <property name="dataSource">
+			<ref bean="dataSource_mysql_dict" />
+		</property>
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+    </bean>
+    
+</beans>

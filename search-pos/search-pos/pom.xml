@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.yihaodian.public</groupId>
+		<artifactId>public-pom</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.yihaodian.search</groupId>
+	<artifactId>search-pos</artifactId>
+	<version>2.1-SNAPSHOT</version>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<colt.version>1.2.0</colt.version>
+		<lbfgs.version>1.0</lbfgs.version>
+		<trove.version>1.0.2</trove.version>
+		<search-nlp.version>2.0.5-SNAPSHOT</search-nlp.version>
+		<mysql-connector.version>5.1.25</mysql-connector.version>
+		<spring.version>2.5.6.SEC02</spring.version>
+		<opencsv.version>2.1</opencsv.version>
+		<ibatis-sqlmap.version>2.3.4.726</ibatis-sqlmap.version>
+		<commons-dbcp.version>1.4</commons-dbcp.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>colt</groupId>
+			<artifactId>colt</artifactId>
+			<version>${colt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>trove</groupId>
+			<artifactId>trove</artifactId>
+			<version>${trove.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>LBFGS</groupId>
+			<artifactId>LBFGS</artifactId>
+			<version>${lbfgs.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yihaodian.search</groupId>
+			<artifactId>search-nlp</artifactId>
+			<version>${search-nlp.version}</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>${spring.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
+			<version>${ibatis-sqlmap.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>${opencsv.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+		<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>yihaodian-releases</id>
+			<name>YiHaoDian Releases Repository</name>
+			<url>http://maven.yihaodian.cn/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>yihaodian-snapshots</id>
+			<name>YiHaoDian Snapshots Repository</name>
+			<url>http://maven.yihaodian.cn/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

@@ -1,0 +1,56 @@
+Manifest-Version: 1.0
+Specification-Vendor: The Store Corp.
+Class-Path: gson-2.1.jar ycc-client-1.1.0.jar ycc-utils-1.1.0-20130620
+ .035459-4.jar jackson-core-lgpl-1.4.0.jar jackson-mapper-lgpl-1.4.0.j
+ ar commons-logging-1.1.1.jar commons-httpclient-3.1.jar commons-codec
+ -1.2.jar commons-io-1.3.2.jar commons-lang-2.5.jar detector-monitor-c
+ ommon-0.1.3-20150420.065819-90.jar fastjson-1.1.29.jar slf4j-log4j12-
+ 1.6.2.jar slf4j-api-1.6.2.jar ycc-global-1.0.0-20121030.024231-4.jar 
+ search-mandy-api-1.5.0.jar ognl-3.0.6_mod.jar javassist-3.11.0.GA.jar
+  search-common-0.1.1.jar mail-1.4.5.jar activation-1.1.jar je-5.0.48.
+ jar freemarker-2.3.19.jar kryo-2.17.jar reflectasm-1.07-shaded.jar mi
+ nlog-1.2.jar objenesis-1.2.jar asm-3.1.jar hessian-3.1.6.jar log4j-1.
+ 2.16.jar hedwig-client-0.1.2-20151223.083153-38.jar hedwig-common-0.1
+ .2-20151223.083149-42.jar detector-monitor-client-1.0.2-20160315.0116
+ 07-17.jar jumper-producerclient-0.5.2-20160802.022733-10.jar jumper-c
+ ommon-0.5.2-20160728.095730-53.jar jackson-databind-2.0.2.jar jackson
+ -annotations-2.0.2.jar jackson-core-2.0.2.jar mongo-java-driver-3.2.2
+ .jar cglib-2.1_3.jar xstream-1.3.1.jar xpp3_min-1.1.4c.jar netty-3.6.
+ 6.Final.jar disruptor-2.10.4.jar jumper-consumerclient-0.5.2-20160802
+ .022854-42.jar spring-web-3.2.0.RELEASE.jar spring-context-3.2.0.RELE
+ ASE.jar spring-expression-3.2.0.RELEASE.jar spring-core-3.2.0.RELEASE
+ .jar spring-aop-3.2.0.RELEASE.jar aopalliance-1.0.jar spring-beans-3.
+ 2.0.RELEASE.jar spring-jms-3.2.0.RELEASE.jar spring-tx-3.2.0.RELEASE.
+ jar front-global-2.1.19.jar dspace-jmockit-0.999.4.jar advertise-api-
+ 1.8.1-20130312.092149-29.jar ibatis-sqlmap-2.3.0.677.jar ad-dolphin-c
+ lient-1.0.7-20130823.012923-25.jar spring-context-support-3.1.2.RELEA
+ SE.jar spring-ibatis-2.0.8.jar spring-dao-2.0.8.jar front-passport-cl
+ ient-3.0.0.jar yuicompressor-2.4.2.jar js-1.6R7.jar commons-io-1.3.2.
+ jar quartz-1.6.0.jar lib-ip-0.2.0-20120426.022842-1.jar front-kernel-
+ 1.3.6.jar javassist-3.14.0-GA.jar commons-dbcp-1.4.jar oracle-jdbc-dr
+ iver-11.2.0.2.0.jar httpclient-4.0.3.jar httpcore-4.0.1.jar servlet-a
+ pi-2.5.jar jml-1.0-full.jar memcached-2.0.1.jar aspectjweaver-1.5.4.j
+ ar struts2-core-2.0.11.2_mod.jar xwork-2.0.6_mod.jar struts2-spring-p
+ lugin-2.0.11.2.jar json-lib-2.2.3-jdk15.jar commons-collections-3.2.j
+ ar ezmorph-1.0.6.jar commons-beanutils-1.8.3.jar ibatis-dao-2.3.0.677
+ .jar dom4j-1.6.1.jar xml-apis-1.0.b2.jar jaxen-1.1.1.jar jdom-1.0.jar
+  xercesImpl-2.6.2.jar xom-1.0.jar xmlParserAPIs-2.6.2.jar xalan-2.6.0
+ .jar icu4j-2.6.1.jar ycache-client-2.0.3.jar commons-pool-1.5.6.jar o
+ scache-2.4.1.jar jms-1.1.jar hedwig-zk-0.1-20140710.063853-1.jar zook
+ eeper-3.3.5.jar
+Build-Jdk: 1.6.0_31
+Built-By: chenmeng
+Created-By: Maven Integration for Eclipse
+
+Name: Job Information
+JobURL: null
+JobBuildURL: null
+
+Name: Build Information
+Project: search-evaluation
+BuildTime: null
+svnRevision: null
+BaseLine: search-evaluation-0.0.2-${SVN.committedRevision}-${timestamp
+ }
+ProjectVersion: 0.0.2
+

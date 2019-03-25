@@ -1,0 +1,174 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>com.yihaodian.public</groupId>
+		<artifactId>public-pom</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.yihaodian.search</groupId>
+	<artifactId>search-nlp</artifactId>
+	<version>2.0.8-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>search-nlp</name>
+	<url>http://192.168.110.245/svn/source/yihaodian/IT3/branches/Refactoring-Segmentation/search-nlp</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit.version>4.8.1</junit.version>
+		<lucene-core.version>4.6.1</lucene-core.version>
+		<mysql-connector.version>5.1.33</mysql-connector.version>
+		<!-- <ibatis-dao.version>2.3.0.677</ibatis-dao.version> -->
+		<mybatis.version>2.3.5</mybatis.version> 
+		<commons-dbcp.version>1.4</commons-dbcp.version>
+		<commons-pool.version>1.5.5</commons-pool.version>
+		<commons-logging.version>1.1.1</commons-logging.version>
+		<spring.version>2.5.6.SEC02</spring.version>
+		<opencsv.version>2.1</opencsv.version>
+		<commons-io.version>1.4</commons-io.version>
+		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+		<maven-source-plugin.version>2.1.2</maven-source-plugin.version>
+		<maven-jar-plugin.version>2.3.1</maven-jar-plugin.version>
+		<maven-antrun-plugin.version>1.6</maven-antrun-plugin.version>
+		<log4j.version>1.2.16</log4j.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>${lucene-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-analyzers-common</artifactId>
+			<version>${lucene-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector.version}</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.yihaodian.t3rd</groupId>
+			<artifactId>ibatis-dao</artifactId>
+			<version>${ibatis-dao.version}</version>
+		</dependency> -->
+		<dependency>
+		  <groupId>org.mybatis</groupId>
+		  <artifactId>mybatis</artifactId>
+		  <version>${mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>${commons-pool.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons-logging.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>${opencsv.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- 打包源码 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
+				<configuration>
+					<attach>true</attach>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- 生成MD5校验文件 -->
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${maven-antrun-plugin.version}</version>
+				<executions>
+					<execution>
+						<phase> package </phase>
+						<configuration>
+							<target>
+								<checksum>
+									<fileset dir="target">
+										<include name="*" />
+									</fileset>
+								</checksum>
+							</target>
+
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>yihaodian-releases</id>
+			<name>YiHaoDian Releases Repository</name>
+			<url>http://maven.yihaodian.cn/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>yihaodian-snapshots</id>
+			<name>YiHaoDian Snapshots Repository</name>
+			<url>http://maven.yihaodian.cn/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

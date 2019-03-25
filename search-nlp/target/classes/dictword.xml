@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="DictWord">
+    <resultMap class="com.yihaodian.search.nlp.model.DictWord" id="dictwordResult" groupBy="keyword,type">
+        <result property="keyword" column="keyword" nullValue=""/>
+        <result property="synonyms" column="synonym" nullValue=""/>
+        <result property="extend" column="extented" nullValue=""/>
+        <result property="type" column="type" nullValue="99"/>
+    </resultMap>
+    <select id="getDictWord" resultMap="dictwordResult" parameterClass="int">
+		select kd.KEYWORD,kd.SYNONYM,kd.EXTENTED,kd.TYPE from KEYWORD_DICT kd where (kd.DATA_FROM in (3,5,7) or kd.TYPE in (1,2,6,7,98)) and kd.`STATUS`=0 ;
+    </select>
+    
+    <select id="getDictWordsByVersion" resultMap="dictwordResult" parameterClass="String">
+    	select kd.KEYWORD,kd.SYNONYM,kd.EXTENTED,kd.TYPE from KEYWORD_DICT_TEMP kd 
+    	where (kd.DATA_FROM in (3,5,7) or kd.TYPE in (1,2,6,7,98)) 
+    	and kd.`STATUS`=0 
+    	and kd.VERSION=#value#;
+    </select>
+    
+    <delete id="dropDictTemp">
+    	DELETE FROM KEYWORD_DICT_TEMP WHERE CURDATE()-2 > DATE;
+    </delete>
+    
+    <insert id="insertDictTemp" parameterClass="string">
+    	INSERT INTO KEYWORD_DICT_TEMP(KEYWORD,TYPE,SYNONYM,EXTENTED,LAST_UPDATE_ID,LAST_UPDATE_TIME,STATUS,DATA_FROM,LAST_UPDATE_NAME,IS_CHECK,VERSION,DATE) SELECT KEYWORD,TYPE,SYNONYM,EXTENTED,LAST_UPDATE_ID,LAST_UPDATE_TIME,STATUS,DATA_FROM,LAST_UPDATE_NAME,IS_CHECK,#version#,CURDATE() FROM KEYWORD_DICT;
+    </insert>
+    
+</sqlMap>

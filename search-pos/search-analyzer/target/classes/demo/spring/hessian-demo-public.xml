@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <!-- 利用  hessian 发布服务接口, 相应的service实现必须已在spring中配置 -->
+	<bean name="/demo" class="org.springframework.remoting.caucho.HessianServiceExporter"> 
+	    <property name="service" ref="demoServiceImpl"/> 
+	    <property name="serviceInterface" value="com.yihaodian.search.DemoService"/> 
+    </bean>
+    
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<select id="listSearchWords" resultClass="java.util.HashMap">
+	  select ID,KEY_WORD from KEY_WORD_REPORT where mc_site_id=1
+	</select>
+
+	<update id="updateSearchWord" parameterClass="map">
+	  update KEY_WORD_REPORT set PY=#isCatBrand#,LEAF=#splited# where ID = #ID#;
+	</update>
+
+	<select id="listCategoryWords" resultClass="java.lang.String">
+	  select keyword from KEYWORD_DICT where type=1 and status=0
+	</select>
+  
+	<select id="listBrandWords" resultClass="java.lang.String">
+	  select keyword from KEYWORD_DICT where type=2 and status=0
+	</select>
+  
+	<select id="listOtherWords" resultClass="java.lang.String">
+	  select keyword from KEYWORD_DICT where type=10 and status=0
+	</select>
+
+</sqlMap>

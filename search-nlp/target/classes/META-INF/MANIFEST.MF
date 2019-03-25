@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Built-By: chenmeng
+Build-Jdk: 1.6.0_31
+Class-Path: lucene-core-4.6.1.jar lucene-analyzers-common-4.6.1.jar my
+ sql-connector-java-5.1.33.jar mybatis-2.3.5.jar commons-dbcp-1.4.jar 
+ commons-pool-1.5.5.jar commons-logging-1.1.1.jar spring-2.5.6.SEC02.j
+ ar opencsv-2.1.jar commons-io-1.4.jar log4j-1.2.16.jar
+Created-By: Maven Integration for Eclipse
+Specification-Vendor: The Store Corp.
+
+Name: Build Information
+ProjectVersion: 2.0.8-SNAPSHOT
+Project: search-nlp
+BaseLine: search-nlp-2.0.8-SNAPSHOT-${SVN.committedRevision}-${timesta
+ mp}
+BuildTime: null
+svnRevision: null
+
+Name: Job Information
+JobURL: null
+JobBuildURL: null
+

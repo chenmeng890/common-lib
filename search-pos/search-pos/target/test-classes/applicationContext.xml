@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="propertyConfigurer"
+		class="com.yihaodian.front.kernel.spring.GlobalPropertyPlaceholderConfigurer">
+		<property name="confChildPath">
+			<value>config</value>
+		</property>
+	</bean>
+
+	<bean id="dataSource_wordlib" class="com.yihaodian.front.kernel.spring.DataSourceFactoryBean" />
+	<bean id="dataSource_product" class="com.yihaodian.front.kernel.spring.DataSourceFactoryBean" />
+
+	<bean id="sqlmct-wordlib" class="com.yihaodian.front.kernel.spring.SqlMapClientTemplateFactoryBean">
+		<property name="configLocation">
+			<value>classpath:/sqlmc-wordlib.xml</value>
+		</property>
+		<property name="dataSource">
+            <ref bean="dataSource_wordlib" />
+        </property>
+	</bean>
+
+	<bean id="sqlmct-product" class="com.yihaodian.front.kernel.spring.SqlMapClientTemplateFactoryBean">
+		<property name="configLocation">
+			<value>classpath:/sqlmc-product.xml</value>
+		</property>
+		<property name="dataSource">
+            <ref bean="dataSource_product" />
+        </property>
+	</bean>
+</beans>

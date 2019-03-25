@@ -1,0 +1,166 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.yihaodian.search</groupId>
+	<artifactId>search-evaluation</artifactId>
+	<version>0.0.2</version>
+	<packaging>jar</packaging>
+
+	<name>search-evaluation</name>
+	<url>http://maven.apache.org</url>
+	<parent>
+		<groupId>com.yihaodian.public</groupId>
+		<artifactId>public-pom</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<properties>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit.version>4.8.1</junit.version>
+		<ycc-client.version>1.1.0</ycc-client.version>
+		<ycc-global.version>1.0.0-SNAPSHOT</ycc-global.version>
+		<gson.version>2.1</gson.version>
+		<search-mandy-api.version>1.5.0</search-mandy-api.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yihaodian.configcentre</groupId>
+			<artifactId>ycc-client</artifactId>
+			<version>${ycc-client.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yihaodian.configcentre</groupId>
+			<artifactId>ycc-global</artifactId>
+			<version>${ycc-global.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>xerces</groupId>
+					<artifactId>xercesImpl</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yihaodian.search</groupId>
+			<artifactId>search-mandy-api</artifactId>
+			<version>${search-mandy-api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.google.code.maven-svn-revision-number-plugin
+										</groupId>
+										<artifactId>
+											svn-revision-number-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.13,)
+										</versionRange>
+										<goals>
+											<goal>revision</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.keyboardsamurais.maven
+										</groupId>
+										<artifactId>
+											maven-timestamp-plugin
+										</artifactId>
+										<versionRange>
+											[1.0,)
+										</versionRange>
+										<goals>
+											<goal>create</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>maven repo2</id>
+			<name>maven repo2</name>
+			<url>http://repo2.maven.org/maven2/</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>yihaodian-releases</id>
+			<name>YiHaoDian Releases Repository</name>
+			<url>http://maven.yihaodian.cn/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>yihaodian-snapshots</id>
+			<name>YiHaoDian Snapshots Repository</name>
+			<url>http://maven.yihaodian.cn/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>
